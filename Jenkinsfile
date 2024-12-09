@@ -1,31 +1,26 @@
-
-pipeline {
-    agent any 
-
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    // Build your Docker image
-                    bat 'docker build -t my-nodejs-app .'
+pipeline{
+    agent any
+    stages{
+        stage('Build'){
+            steps{
+                script{
+                    bat 'docker build -t my-kube-app .'
                 }
             }
         }
-        stage('Test') {
-            steps {
-                script {
-                    // Run tests here if you have any
-                    echo 'Running tests...'
+        stage('Test'){
+            steps{
+                script{
+                    echo 'Running test...'
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    // Deploy your Docker image
+        stage('Deploy'){
+            steps{
+                script{
                     echo 'Deploying application...'
                 }
             }
-        }
-    }
+        }
+    }
 }
